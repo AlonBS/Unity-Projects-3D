@@ -61,6 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Ball.cs" />
+    <Compile Include="Assets\Scripts\CameraControl.cs" />
+    <Compile Include="Assets\Scripts\DragLaunch.cs" />
     <Compile Include="Assets\START Pack\Scripts\ActionMaster2.cs" />
     <Compile Include="Assets\START Pack\Scripts\OurScoreDisplayTest1.cs" />
     <Compile Include="Assets\Temp\ScoreMasterTest.cs" />
