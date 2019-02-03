@@ -10,12 +10,14 @@ public class DragLaunch : MonoBehaviour {
     private Vector3 dragStart, dragEnd;
     private float startTime, endTime;
 
-	// Use this for initialization
-	void Start () {
+    private float LANE_WIDTH = 80f; 
 
+    // Use this for initialization
+    void Start () {
         ball = GetComponent<Ball>();
 		
 	}
+
 
     public void DragStart()
     {
@@ -39,5 +41,19 @@ public class DragLaunch : MonoBehaviour {
         //launch ball
         ball.Launch(velocity);
     }
+
+
+    public void MoveStart(float xNudge)
+    {
+        if (ball.isBallInPlay())
+        {
+            return;
+        }
+
+        float newXPos = Mathf.Clamp(xNudge + ball.transform.position.x, -LANE_WIDTH/2, LANE_WIDTH/2);
+        ball.transform.position = new Vector3(newXPos, ball.transform.position.y, ball.transform.position.z);
+    }
+
+
 	
 }
