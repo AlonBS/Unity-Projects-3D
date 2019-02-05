@@ -5,9 +5,15 @@ using UnityEngine;
 public class Pin : MonoBehaviour {
 
     [SerializeField] float standingThreshold;
+    [SerializeField] float distanceToRaise = 0.4f;
 
-	// Use this for initialization
-	void Start () {
+
+    private Rigidbody rigidBody;
+
+    // Use this for initialization
+    void Start () {
+
+        rigidBody = GetComponent<Rigidbody>();
 		
 	}
 	
@@ -26,19 +32,23 @@ public class Pin : MonoBehaviour {
     }
 
 
-    //public void Lower()
-    //{
-    //    transform.Translate(new Vector3(0, -distToRaise, 0), Space.World);
-    //    rib.useGravity = true;
-    //    rib.freezeRotation = true;
-    //}
+    public void RaiseIfStanding()
+    {
+        if (IsStanding())
+        {
+            transform.position += new Vector3(0f, distanceToRaise, 0f);
+            rigidBody.useGravity = false;
+        }
+    }
 
-    //public void ResetPin()
-    //{
-    //    if (gameObject)
-    //    {
-    //        rib.freezeRotation = false;
-    //        rib.useGravity = true;
-    //    }
-    //}
+
+    public void Lower()
+    {
+        transform.position -= new Vector3(0f, distanceToRaise, 0f);
+        rigidBody.useGravity = true;
+    }
+
+
+
+
 }

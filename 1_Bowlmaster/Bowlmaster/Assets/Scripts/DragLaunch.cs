@@ -10,7 +10,7 @@ public class DragLaunch : MonoBehaviour {
     private Vector3 dragStart, dragEnd;
     private float startTime, endTime;
 
-    private float LANE_WIDTH = 80f; 
+    private float LANE_WIDTH = 0.8f; 
 
     // Use this for initialization
     void Start () {

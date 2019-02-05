@@ -1,0 +1,14 @@
+{
+    "name": "Editor",
+    "references": [
+        "ScriptsAssembly"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

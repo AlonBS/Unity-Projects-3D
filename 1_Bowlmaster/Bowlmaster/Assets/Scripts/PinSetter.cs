@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class PinSetter : MonoBehaviour {
 
     [SerializeField] Text numOfStandingPins;
+    [SerializeField] GameObject pinsSet;
+    
+    
+    
 
 
 
@@ -105,13 +109,35 @@ public class PinSetter : MonoBehaviour {
     //    pin.ResetPin();
     //}
 
-    //public void RenewPins()
-    //{
-    //    GameObject pins = Instantiate(pinSet, new Vector3(0, distanceToRaise, 1829), Quaternion.identity) as GameObject;
-    //    foreach (Rigidbody rib in pins.GetComponentsInChildren<Rigidbody>())
-    //    {
-    //        rib.freezeRotation = true;
-    //    }
-    //}
+
+    /* Raises only standing pins by  distanceToRaise */
+    public void RaisePins()
+    {
+        Pin[] pins = FindObjectsOfType<Pin>();
+        foreach (Pin p in pins)
+        {
+            p.RaiseIfStanding();
+        }
+    }
+
+    /* Lowers only standing pins by  distanceToRaise */
+    public void LowerPins()
+    {
+        Pin[] pins = FindObjectsOfType<Pin>();
+        foreach (Pin p in pins)
+        {
+            p.Lower();
+        }
+    }
+
+
+    public void RenewPins()
+    {
+        GameObject pins = Instantiate(pinsSet, new Vector3(0, 0.5f, 18.29f), Quaternion.identity) as GameObject;
+        foreach (Rigidbody rib in pins.GetComponentsInChildren<Rigidbody>())
+        {
+            rib.freezeRotation = true;
+        }
+    }
 
 }
