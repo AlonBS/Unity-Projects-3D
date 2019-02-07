@@ -1483,7 +1483,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54139733046558562
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1498,7 +1498,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54216570759302086
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1513,7 +1513,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54284763870011164
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1528,7 +1528,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54336083844002308
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1543,7 +1543,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54417262002506872
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1558,7 +1558,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54438983749530120
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1573,7 +1573,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54526138688320700
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1588,7 +1588,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54873625144620044
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1603,7 +1603,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!54 &54949535422072032
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1618,7 +1618,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &64030614243709628
 MeshCollider:
   m_ObjectHideFlags: 1

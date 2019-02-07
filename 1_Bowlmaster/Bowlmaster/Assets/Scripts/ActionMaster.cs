@@ -14,18 +14,21 @@ public class ActionMaster {
 
     }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public static Action NextAction(List<int> pinFalls)
+    {
+        ActionMaster actionMaster = new ActionMaster();
+        Action action = ActionMaster.Action.END_GAME;
+        foreach (int pinFall in pinFalls)
+        {
+            action = actionMaster.Bowl(pinFall);
+        }
+
+        return action;
+    }
 
 
-    public Action Bowl (int pins)
+    private Action Bowl (int pins)
     {
         if (pins < 0 || pins > 10)
         {
@@ -40,7 +43,7 @@ public class ActionMaster {
         }
 
 
-        if (bowl == 19 && pins == 10)
+        if (bowl >= 19 && pins == 10)
         {
             bowl++;
             return Action.RESET;
@@ -48,7 +51,10 @@ public class ActionMaster {
         else if (bowl == 20)
         {
             bowl++;
-            if (AllPinsKnockedDown())
+            if (bowls[18] == 10 && bowls[19] == 0) {
+                return Action.TIDY;
+            }
+            else if (bowls[18] + bowls[19] == 10)
             {
                 return Action.RESET;
             }
@@ -62,19 +68,6 @@ public class ActionMaster {
             }
         }
 
-
-
-        //if (bowl >= 19 && Bowl21Awarded())
-        //{
-        //    bowl += 1;
-        //    return Action.RESET;
-        //}
-        //else if (bowl == 20 && !Bowl21Awarded())
-        //{
-        //    return Action.END_GAME;
-
-        //}
-
         if (pins == 10)
         {
             bowl += 2;
@@ -82,8 +75,16 @@ public class ActionMaster {
         }
         if (bowl % 2 != 0)
         {
-            bowl += 1;
-            return Action.TIDY;
+            if (pins == 10)
+            {
+                bowl += 2;
+                return Action.END_TURN;
+            }
+            else
+            {
+                bowl += 1;
+                return Action.TIDY;
+            }
         }
         else if (bowl % 2 == 0)
         {
@@ -96,13 +97,13 @@ public class ActionMaster {
     }
 
 
-    private bool AllPinsKnockedDown()
+    private  bool AllPinsKnockedDown()
     {
-        return  (bowls[18] + bowls[19] == 20);
+        return  (bowls[18] + bowls[19] % 10 == 0);
     }
 
 
-    private bool Bowl21Awarded()
+    private  bool Bowl21Awarded()
     {
         return (bowls[18] + bowls[19] >= 10);
     }

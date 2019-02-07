@@ -5,93 +5,109 @@ using UnityEngine.UI;
 
 public class PinSetter : MonoBehaviour {
 
-    [SerializeField] Text numOfStandingPins;
+    
     [SerializeField] GameObject pinsSet;
+
+
+    private ActionMaster actionMaster;
+    private Animator animator;
+    private PinCounter pinCounter;
     
-    
-    
-
-
-
-    public int lastStandingCount = -1;
-
-    private float lastChangeTime;
-    private bool ballEnteredBox = false;
-    private Ball ball;
 
 	// Use this for initialization
 	void Start () {
 
-        ball = FindObjectOfType<Ball>();
-		
-	}
+       //1ball = FindObjectOfType<Ball>();
+        actionMaster = new ActionMaster();
+
+        animator = GetComponent<Animator>();
+        pinCounter = FindObjectOfType<PinCounter>();
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        numOfStandingPins.text = CountStanding().ToString();
-        if (ballEnteredBox)
-        {
-            CheckStandingCount();
-        }
+        //numOfStandingPins.text = CountStanding().ToString();
+        //if (ballOutOfPlay)
+        //{
+        //    CheckStandingCount();
+        //}
 
     }
 
-    void CheckStandingCount()
-    {
-        int count = CountStanding();
-        if (lastStandingCount != count)
-        {
-            lastStandingCount = count;
-            lastChangeTime = Time.time;
-            return;
-        }
+    //void CheckStandingCount()
+    //{
+    //    int count = CountStanding();
+    //    if (lastStandingCount != count)
+    //    {
+    //        lastStandingCount = count;
+    //        lastChangeTime = Time.time;
+    //        return;
+    //    }
 
-        if (Time.time - lastChangeTime >= 3f)
-        {
-            PinsHaveSettled();
-        }
+    //    if (Time.time - lastChangeTime >= 3f)
+    //    {
+    //        PinsHaveSettled();
+    //    }
 
         
-    }
+    //}
 
-    void PinsHaveSettled()
-    {
-        lastStandingCount = -1;
-        ballEnteredBox = false;
-        numOfStandingPins.color = Color.green;
-        ball.Reset();
-    }
+    //void PinsHaveSettled()
+    //{
+    //    int standingPins = CountStanding();
+    //    int pinsFall = lastSettledCount - standingPins;
+    //    lastSettledCount = standingPins;
 
-
-    private int CountStanding()
-    {
-        int standingPinsCount = 0;
-        foreach (Pin p in FindObjectsOfType<Pin>())
-        {
-            if (p.IsStanding())
-            {
-                ++standingPinsCount;
-            }
-        }
-
-        return standingPinsCount;
-
-    }
-
-  
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
-        if (other.GetComponent<Ball>())
-        {
-            ballEnteredBox = true;
-            numOfStandingPins.color = new Color(1.0f, 0, 0);
-        }
+    //    // Take Action
+    //    ActionMaster.Action action = actionMaster.Bowl(pinsFall);
+    //    TakeAction(action);
         
 
+
+    //    lastStandingCount = -1;
+    //    ballOutOfPlay = false;
+    //    numOfStandingPins.color = Color.green;
+    //    ball.Reset();
+    //}
+
+
+    public void PerformAction(ActionMaster.Action action)
+    {
+        if (action == ActionMaster.Action.TIDY)
+        {
+            animator.SetTrigger("tidyTrigger");
+        }
+        else if (action == ActionMaster.Action.RESET || action == ActionMaster.Action.END_TURN)
+        {
+            pinCounter.Reset();
+            animator.SetTrigger("resetTrigger");
+        }
     }
+
+
+    //private int CountStanding()
+    //{
+    //    int standingPinsCount = 0;
+    //    foreach (Pin p in FindObjectsOfType<Pin>())
+    //    {
+    //        if (p.IsStanding())
+    //        {
+    //            ++standingPinsCount;
+    //        }
+    //    }
+
+    //    return standingPinsCount;
+
+    //}
+
+
+    //public void BallOutOfPlay()
+    //{
+    //    ballOutOfPlay = true;
+    //    numOfStandingPins.color = new Color(1.0f, 0, 0);
+    //}
 
     private void OnTriggerExit(Collider other)
     {

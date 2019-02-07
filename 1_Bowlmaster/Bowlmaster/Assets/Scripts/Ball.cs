@@ -28,8 +28,13 @@ public class Ball : MonoBehaviour {
 
     public void Launch(Vector3 velocity)
     {
+        // Prevent double draging
+        if (inPlay)
+        {
+            return; 
+        }
         rigidBody.useGravity = true;
-        rigidBody.velocity = velocity / 100;
+        rigidBody.velocity = velocity / 80;
 
         audioSource.Play();
 
@@ -52,6 +57,8 @@ public class Ball : MonoBehaviour {
         rigidBody.velocity = new Vector3(0, 0, 0);
         rigidBody.angularVelocity = new Vector3(0, 0, 0);
         rigidBody.useGravity = false;
+
+        transform.rotation = Quaternion.identity;
 
         inPlay = false;
     }

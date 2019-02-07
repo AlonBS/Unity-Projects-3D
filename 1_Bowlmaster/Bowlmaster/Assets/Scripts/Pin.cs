@@ -37,6 +37,7 @@ public class Pin : MonoBehaviour {
         if (IsStanding())
         {
             transform.position += new Vector3(0f, distanceToRaise, 0f);
+            transform.rotation = Quaternion.identity;
             rigidBody.useGravity = false;
         }
     }

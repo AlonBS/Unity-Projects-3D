@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour {
     [SerializeField] Ball ball;
 
     private Vector3 offset;
-    private const int CAMERA_STOP_MOV_Z_POS = 1600;
+    private const int CAMERA_STOP_MOV_Z_POS = 16;
 
 	// Use this for initialization
 	void Start () {

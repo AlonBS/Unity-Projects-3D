@@ -65,9 +65,13 @@
     <Compile Include="Assets\Scripts\Ball.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
     <Compile Include="Assets\Scripts\DragLaunch.cs" />
+    <Compile Include="Assets\Scripts\GameBox.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Pin.cs" />
+    <Compile Include="Assets\Scripts\PinCounter.cs" />
     <Compile Include="Assets\Scripts\PinSetter.cs" />
     <Compile Include="Assets\Scripts\ScoreBoard.cs" />
+    <Compile Include="Assets\Scripts\ScoreMaster.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Programming/Unity/2018.2.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
