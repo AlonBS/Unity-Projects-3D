@@ -8,7 +8,7 @@ using System.Linq;
 [TestFixture]
 public class ScoreMasterTest
 {
-    
+
     [Test]
     public void T01Bowl23()
     {
@@ -86,6 +86,10 @@ public class ScoreMasterTest
     {
         int[] rolls = { 1, 2, 3, 5, 5, 5, 3, 3 };
         int[] frames = { 3, 8, 13, 6 };
+        foreach (int i in ScoreMaster.ScoreFrames(rolls.ToList()))
+            Debug.Log(i);
+
+
         Assert.AreEqual(frames.ToList(), ScoreMaster.ScoreFrames(rolls.ToList()));
     }
 
