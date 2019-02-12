@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreMaster {
-
+public static class ScoreMaster {
 
     public static List<int> ScoreFrames(List<int> rolls)
     {

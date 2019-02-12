@@ -9,7 +9,6 @@ public class PinSetter : MonoBehaviour {
     [SerializeField] GameObject pinsSet;
 
 
-    private ActionMaster actionMaster;
     private Animator animator;
     private PinCounter pinCounter;
     
@@ -18,7 +17,6 @@ public class PinSetter : MonoBehaviour {
 	void Start () {
 
        //1ball = FindObjectOfType<Ball>();
-        actionMaster = new ActionMaster();
 
         animator = GetComponent<Animator>();
         pinCounter = FindObjectOfType<PinCounter>();

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     private List<int> bowls;
     private PinSetter pinSetter;
     private Ball ball;
+    private ScoreDisplay scoreDisplay;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour {
         bowls = new List<int>();
         pinSetter = FindObjectOfType<PinSetter>();
         ball = FindObjectOfType<Ball>();
+        
+        scoreDisplay = FindObjectOfType<ScoreDisplay>();
+
 		
 	}
 	
@@ -28,6 +32,15 @@ public class GameManager : MonoBehaviour {
         ActionMaster.Action nextAction = ActionMaster.NextAction(bowls);
         pinSetter.PerformAction(nextAction);
 
+        try
+        {
+            scoreDisplay.UpdateScore(bowls, ScoreMaster.ScoreFrames(bowls));
+        }
+        catch (UnityException e) {
+            Debug.Log("Unable to upate score.");
+            Debug.Log(e.ToString());
+        }
+        
         ball.Reset();
     }
 }
